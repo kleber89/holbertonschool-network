@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
 
 # Check if the user has the required privileges
-if [ "$EUID" -ne 0 ]; then
-  echo "Please run this script as root to see program names and PIDs."
-  exit 1
-fi
-
-# Display listening ports with PID and program name
-ss -lptn | awk 'NR==1 || $1 ~ /^LISTEN$/ {print $0}'
+netstat --listen -p
