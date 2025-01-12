@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Display all active IPv4 addresses, including localhost
+ip -4 addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sort -u
+
+# Optionally, display the localhost IP
+echo "Localhost IP: 127.0.0.1"
